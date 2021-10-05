@@ -43,14 +43,18 @@ export default {
   },
 
   async mounted() {
-    const db = firebase.database()
-    const ref = db.ref('data/diseases')
-    await ref.on('value', (snap) => {
-      const res = snap.val()
-      for (const key in res) {
-        this.fetchData.push({ ...res[key], id: key })
-      }
-    })
+    if (this.$store.state.logined) {
+      const db = firebase.database()
+      const ref = db.ref('data/diseases')
+      await ref.on('value', (snap) => {
+        const res = snap.val()
+        for (const key in res) {
+          this.fetchData.push({ ...res[key], id: key })
+        }
+      })
+    } else {
+      this.$router.replace('/dashbord/login')
+    }
   },
 }
 </script>

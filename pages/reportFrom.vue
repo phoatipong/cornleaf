@@ -54,7 +54,13 @@ export default {
         const ref = db.ref('report')
         await ref.push(this.payload).then(() => {
           alert('แจ้งปัญหาสำเร็จ เราจะตอบกลับไปเร็วๆนี้')
-          window.liff.closeWidow()
+          window.liff
+            .init({
+              liffId: '1656245076-1DO5Kv4r',
+            })
+            .then(() => {
+              window.liff.closeWindow()
+            })
         })
       }
     },

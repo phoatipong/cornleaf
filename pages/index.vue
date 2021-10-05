@@ -2,18 +2,17 @@
   <div>
     <v-container>
       <v-row align="center" justify="center">
-        <v-col cols="6">
-          <indexBtn title="ความรู้ทั่วไป" />
+        <v-col cols="12">
+          <nuxt-link to="/knowledge">
+            <indexBtn title="ความรู้ทั่วไป" />
+          </nuxt-link>
         </v-col>
-        <v-col cols="6">
-          <indexBtn title="การป้องกัน" />
-        </v-col>
-        <v-col cols="6">
+        <v-col cols="12">
           <nuxt-link to="/report">
             <indexBtn title="ปรึกษา หรือ แจ้งปัญหาการใช้งาน" />
           </nuxt-link>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12">
           <indexBtn title="ปัญหาที่พบบ่อย" />
         </v-col>
       </v-row>
@@ -26,6 +25,7 @@ export default {
   components: {
     indexBtn,
   },
+  methods: {},
 }
 </script>
 

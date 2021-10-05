@@ -17,7 +17,7 @@ export default {
     return {
       res: {},
       data: {
-        labels: ['โรคราสนิม', 'โรคใบไหม้แผลใหญ่', 'โรคใบจุดสีเทา', 'สุขภาพดี'],
+        labels: ['โรคราสนิม', 'โรคใบไหม้แผลใหญ่', 'โรคใบจุดสีเทา', 'ปกติ'],
         datasets: [
           {
             backgroundColor: [
@@ -41,7 +41,7 @@ export default {
         res.โรคราสนิม,
         res.โรคใบไหม้แผลใหญ่,
         res.โรคใบจุดสีเทา,
-        res.สุขภาพดี,
+        res.ปกติ,
       ]
 
       this.renderChart(this.data, {
@@ -64,7 +64,5 @@ export default {
         },
       })
     })
-
-    console.log(this.data.datasets[0].data)
   },
 }

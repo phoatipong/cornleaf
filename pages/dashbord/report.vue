@@ -58,19 +58,22 @@ export default {
     }
   },
   async mounted() {
-    const db = firebase.database()
-    const ref = db.ref('report').orderByChild('read').equalTo(false)
-    await ref.on(
-      'value',
-      (snapshot) => {
-        const res = snapshot.val()
-        for (const key in res) {
-          this.fetchData.push({ ...res[key], id: key })
-        }
-      },
-      (errorObject) => {}
-    )
-
+    if (this.$store.state.logined) {
+      const db = firebase.database()
+      const ref = db.ref('report').orderByChild('read').equalTo(false)
+      await ref.on(
+        'value',
+        (snapshot) => {
+          const res = snapshot.val()
+          for (const key in res) {
+            this.fetchData.push({ ...res[key], id: key })
+          }
+        },
+        (errorObject) => {}
+      )
+    } else {
+      this.$router.replace('/dashbord/login')
+    }
   },
 
   methods: {

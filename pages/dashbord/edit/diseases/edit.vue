@@ -134,17 +134,21 @@ export default {
     }
   },
   async mounted() {
-    const db = firebase.database()
-    const ref = db.ref(`data/diseases/${this.$route.query.index}`)
-    await ref.on('value', (snap) => {
-      const data = snap.val()
-      this.title = data.title
-      this.oldtitle = data.title
-      this.imgUrl = data.img
-      this.management = data.management
-      this.symtoms = data.symtoms
-      this.pathogenesis = data.pathogenesis
-    })
+    if (this.$store.state.logined) {
+      const db = firebase.database()
+      const ref = db.ref(`data/diseases/${this.$route.query.index}`)
+      await ref.on('value', (snap) => {
+        const data = snap.val()
+        this.title = data.title
+        this.oldtitle = data.title
+        this.imgUrl = data.img
+        this.management = data.management
+        this.symtoms = data.symtoms
+        this.pathogenesis = data.pathogenesis
+      })
+    } else {
+      this.$router.replace('/dashbord/login')
+    }
   },
   methods: {
     newline_management() {

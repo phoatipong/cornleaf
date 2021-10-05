@@ -89,12 +89,16 @@ export default {
     }
   },
   async mounted() {
-    const db = firebase.database()
-    const ref = await db.ref('report').orderByKey().equalTo(this.id)
-    await ref.on('value', (snap) => {
-      this.fecthData = snap.val()
-      this.fecthData = this.fecthData[`${this.id}`]
-    })
+    if (this.$store.state.logined) {
+      const db = firebase.database()
+      const ref = await db.ref('report').orderByKey().equalTo(this.id)
+      await ref.on('value', (snap) => {
+        this.fecthData = snap.val()
+        this.fecthData = this.fecthData[`${this.id}`]
+      })
+    }else{
+      this.$router.replace('/dashbord/login')
+    }
   },
 
   methods: {
@@ -102,7 +106,7 @@ export default {
       const payload = {
         event: 'sendback',
         userId: this.fecthData.userId,
-        text: this.text,
+        text: 'ปัญหาผู้ใช้งาน\nวันที่ ' + this.fecthData.date +'\n=========================\n'+'ปัญหาที่แจ้ง\n' + this.fecthData.detail+"\n"+"=========================\n"+ "ตอบกลับ\n"+ this.text,
       }
       await axios({
         method: 'post',

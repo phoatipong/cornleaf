@@ -3,6 +3,11 @@
     <Navigation></Navigation>
     <v-main>
       <v-container fluid>
+        <h2>ระบบปัญญาประดิษฐ์สำหรับจำแนกโรคใบข้าวโพดผ่านไลน์แชทบอท</h2>
+        <h4>
+          Artificial Intelligence for Corn Leaf Disease Classification on Line
+          Chatbot
+        </h4>
         <v-row>
           <v-col cols="6" class="mt-5">
             <v-card rounded="lg" color="#6879aa" height="150">
@@ -40,17 +45,24 @@
           </v-col>
           <v-col cols="3">
             <v-card rounded="lg" min-height="140" color="success">
-              <v-card-title> <p>สุขภาพดี</p></v-card-title>
-              <v-card-text class="text-card"> {{ data.สุขภาพดี }} </v-card-text>
+              <v-card-title> <p>ปกติ</p></v-card-title>
+              <v-card-text class="text-card"> {{ data.ปกติ }} </v-card-text>
             </v-card>
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="4"></v-col>
+          <v-col cols="1"></v-col>
           <div class="chart">
-            <DoughnutChart :height="300" />
+            <DoughnutChart :height="220" />
           </div>
-          <v-col cols="4"></v-col>
+          <v-col cols="4">
+            <ui>
+              <li>โรคราสนิม {{ perRust }} %</li>
+              <li>โรคใบไหม้แผลใหญ่ {{ perBilght }} %</li>
+              <li>โรคใบจุดสีเทา {{ perSpot }} %</li>
+              <li>ปกติ {{ perNormal }} %</li>
+            </ui>
+          </v-col>
         </v-row>
       </v-container>
     </v-main>
@@ -69,18 +81,35 @@ export default {
       drawer: false,
       data: {},
       reportNotify: 0,
+      perRust: 0,
+      perBilght: 0,
+      perNormal: 0,
+      perSpot: 0,
     }
   },
   async mounted() {
-    const db = firebase.database()
-    const ref = db.ref('prediction/stat')
-    await ref.on('value', (snap) => {
-      const res = snap.val()
-      this.data = res
-      for (const key in res) {
-        this.fetchData.push({ ...res[key], id: key })
-      }
-    })
+    const logined = this.$store.state.logined
+    if (logined) {
+      const db = firebase.database()
+      const ref = db.ref('prediction/stat')
+      await ref.on('value', (snap) => {
+        const res = snap.val()
+        this.data = res
+        // for (const key in res) {
+        //   this.fetchData.push({ ...res[key], id: key })
+        // }
+        this.perRust = (this.data.โรคราสนิม / this.data.predict) * 100
+        this.perBilght = (this.data.โรคใบไหม้แผลใหญ่ / this.data.predict) * 100
+        this.perSpot = (this.data.โรคใบจุดสีเทา / this.data.predict) * 100
+        this.perNormal = (this.data.ปกติ / this.data.predict) * 100
+        this.perRust = this.perRust.toFixed(2)
+        this.perBilght = this.perBilght.toFixed(2)
+        this.perSpot = this.perSpot.toFixed(2)
+        this.perNormal = this.perNormal.toFixed(2)
+      })
+    } else {
+      this.$router.replace('/dashbord/login')
+    }
   },
   methods: {},
 }

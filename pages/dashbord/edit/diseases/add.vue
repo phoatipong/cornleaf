@@ -120,6 +120,11 @@ export default {
       urlStoreImg: '',
     }
   },
+  mounted() {
+    if (!this.$store.state.logined) {
+      this.$router.replace('/dashbord/login')
+    }
+  },
   methods: {
     newline_management() {
       this.management = this.management + '<br>'

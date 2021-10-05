@@ -1,7 +1,14 @@
 <template>
   <div>
+    <v-row>
+      <v-col cols="12" class="ml-3 mt-3">
+        <nuxt-link to="/">
+          <v-icon color="">mdi-keyboard-backspace</v-icon>
+        </nuxt-link>
+      </v-col>
+    </v-row>
     <v-container>
-      <v-row class="mt-7">
+      <v-row class="">
         <v-col>
           <h3>
             {{ data.title }}

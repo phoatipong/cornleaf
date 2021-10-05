@@ -33,6 +33,11 @@ export default {
     navigator,
     indexBtn,
   },
+  mounted() {
+    if (!this.$store.state.logined) {
+      this.$router.replace('/dashbord/login')
+    }
+  },
 }
 </script>
 

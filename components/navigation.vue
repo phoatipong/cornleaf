@@ -1,8 +1,8 @@
 <template>
   <v-navigation-drawer permanent expand-on-hover app>
-    <v-list-item class="px-2">
+    <!-- <v-list-item class="px-2">
       <v-list-item-title>Corn Leaf Dashbord</v-list-item-title>
-    </v-list-item>
+    </v-list-item> -->
     <v-divider></v-divider>
     <v-list dense>
       <v-list-item link>
@@ -37,6 +37,14 @@
           </nuxt-link>
         </v-list-item-content>
       </v-list-item>
+      <v-list-item link @click="logout">
+        <v-list-item-icon>
+          <v-icon color="error">mdi-logout</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>ออกจากระบบ</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -56,6 +64,12 @@ export default {
       const data = res.val()
       this.reportNotify = Object.keys(data).length
     })
+  },
+  methods: {
+    logout() {
+      this.$store.commit('setLogined', false)
+      this.$router.replace('/dashbord/login')
+    },
   },
 }
 </script>

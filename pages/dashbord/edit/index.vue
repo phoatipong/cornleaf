@@ -16,9 +16,11 @@
               <indexBtn title="แก้ไขหน้าแนะนำโรค" />
             </nuxt-link>
           </v-col>
-          <v-col cols="6"
-            ><indexBtn title="แก้ไขคำถามที่พบบ่อย"></indexBtn
-          ></v-col>
+          <v-col cols="6">
+            <nuxt-link to="/dashbord/edit/FAQ">
+              <indexBtn title="แก้ไขคำถามที่พบบ่อย"></indexBtn>
+            </nuxt-link>
+          </v-col>
         </v-row>
       </v-container>
     </v-main>

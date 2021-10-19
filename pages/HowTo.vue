@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <div>
     <v-container>
       <v-row align="center" justify="center" class="mt-4">
         <h3>วิธีการใช้งาน</h3>
@@ -57,14 +57,14 @@
         />
       </v-row>
     </v-container>
-  </v-app>
+  </div>
 </template>
 
 <script>
 export default {}
 </script>
 
-<style >
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 .v-application {
   font-family: 'Prompt', sans-serif;

@@ -11,7 +11,7 @@
         <v-col cols="12">
           <p class="text-content">
             สวัสดีคุณ{{ profile.displayName }} ขอบคุณที่ใช้งานกับเรา
-            คุณอาจจะพบวิธีแก้ไขปัญหาในนี้ <v-btn small>FAQ</v-btn>
+            คุณอาจจะพบวิธีแก้ไขปัญหาในนี้ <v-btn small @click="FAQ">FAQ</v-btn>
           </p>
         </v-col>
         <v-col cols="12">
@@ -78,6 +78,9 @@ export default {
       await this.$store.commit('setProfile', this.profile)
       this.$router.replace('/reportFrom')
     },
+    FAQ(){
+      this.$router.replace('/FAQ')
+    }
   },
 }
 </script>

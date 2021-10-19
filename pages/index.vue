@@ -13,7 +13,9 @@
           </nuxt-link>
         </v-col>
         <v-col cols="12">
-          <indexBtn title="ปัญหาที่พบบ่อย" />
+          <nuxt-link to="/FAQ">
+            <indexBtn title="ปัญหาที่พบบ่อย" />
+          </nuxt-link>
         </v-col>
       </v-row>
     </v-container>
@@ -30,6 +32,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+.v-application {
+  font-family: 'Prompt', sans-serif;
+}
 a {
   text-decoration: none;
 }

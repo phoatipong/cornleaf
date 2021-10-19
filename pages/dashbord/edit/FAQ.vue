@@ -11,15 +11,14 @@
         <v-col cols="6">
           <v-card light>
             <v-col><h3>แก้ไขคำถามที่พบบ่อย</h3></v-col>
-            <v-col class="mr"
-              ><v-btn color="success" small @click="add">เพิ่ม</v-btn></v-col
-            >
+            <v-col class="mr">
+              <v-btn color="success" small @click="add">เพิ่ม</v-btn>
+            </v-col>
 
             <v-col v-for="list in lists" :key="list.key">
               <v-divider></v-divider>
               <v-text-field v-model="list.Q" label="คำถาม"></v-text-field>
               <v-text-field v-model="list.A" label="คำตอบ"></v-text-field>
-
               <v-btn x-small color="error" class="mb-5" @click="del(list.id)">
                 ลบ
               </v-btn>
@@ -31,7 +30,32 @@
             </v-col>
           </v-card>
         </v-col>
-        <v-col cols="4"> </v-col>
+        <v-col cols="4">
+          <v-card>
+            <v-col>
+              <h3>ตัวอย่าง</h3>
+
+              <v-list>
+                <v-list-group
+                  :value="false"
+                  v-for="list in lists"
+                  :key="list.key"
+                  prepend-icon="mdi-help-circle"
+                >
+                  <template v-slot:activator>
+                    <v-list-item-title
+                      ><p>{{ list.Q }}</p></v-list-item-title
+                    >
+                  </template>
+                  <v-list-item
+                    ><v-icon color="primary" class="mr-10">mdi-chat</v-icon>
+                    <p v-html="list.A"></p
+                  ></v-list-item>
+                </v-list-group>
+              </v-list>
+            </v-col>
+          </v-card>
+        </v-col>
       </v-row>
     </v-main>
   </v-app>
@@ -52,7 +76,6 @@ export default {
     add() {
       const i = `${this.lists.length}`
       this.lists.push({ Q: '', A: '', id: i })
-      console.log(this.lists)
     },
     del(key) {
       console.log(key)
@@ -79,6 +102,7 @@ export default {
   },
 
   async mounted() {
+    if (this.$store.state.logined) {
     const db = firebase.database()
     const ref = db.ref('data/FAQ')
     await ref.on('value', (snap) => {
@@ -86,8 +110,11 @@ export default {
       for (const key in res) {
         this.lists.push({ ...res[key], id: key })
       }
-      console.log(this.list)
+      console.log(this.lists)
     })
+    }else{
+      this.$router.replace('/dashbord/login')
+    }
   },
 }
 </script>
@@ -100,5 +127,9 @@ export default {
 }
 .v-application {
   font-family: 'Prompt', sans-serif;
+}
+p {
+  color: #000000;
+  margin-top: 17px;
 }
 </style>

@@ -29,7 +29,7 @@
       </v-list-item>
       <v-list-item link>
         <v-list-item-icon>
-          <v-icon color="#ffffff">mdi-iframe</v-icon>
+          <v-icon color="#ffffff">mdi-note-edit-outline</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <nuxt-link to="/dashbord/edit">

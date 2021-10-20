@@ -70,6 +70,7 @@ export default {
     return {
       lists: [],
       i: 1,
+      pass: true,
     }
   },
   methods: {
@@ -78,23 +79,37 @@ export default {
       this.lists.push({ Q: '', A: '', id: i })
     },
     del(key) {
-      console.log(key)
       this.lists.splice(key, 1)
     },
     async save() {
-      console.log(this.lists)
       const k = this.lists.length
       const l = []
+
       for (let i = 0; i < k; i++) {
-        const obj = { Q: this.lists[i].Q, A: this.lists[i].A }
-        l.push(obj)
+        if (this.lists[i].Q === '') {
+          this.pass = false
+          alert('กรุณากรอกข้อมูลให้ครบถ้วน')
+          break
+        } else if (this.lists[i].A === '') {
+          this.pass = false
+          alert('กรุณากรอกข้อมูลให้ครบถ้วน')
+          break
+        } else {
+          this.pass = true
+        }
       }
-      const db = firebase.database()
-      const ref = db.ref('data/FAQ/')
-      await ref.set(l).then(() => {
-        alert('บันทึกข้อมูลสำเร็จ')
-        this.$router.replace('/dashbord/edit')
-      })
+      if (this.pass === true) {
+        for (let i = 0; i < k; i++) {
+          const obj = { Q: this.lists[i].Q, A: this.lists[i].A }
+          l.push(obj)
+        }
+        const db = firebase.database()
+        const ref = db.ref('data/FAQ/')
+        await ref.set(l).then(() => {
+          alert('บันทึกข้อมูลสำเร็จ')
+          this.$router.replace('/dashbord/edit')
+        })
+      }
     },
     cancel() {
       this.$router.replace('/dashbord/edit')
@@ -103,16 +118,15 @@ export default {
 
   async mounted() {
     if (this.$store.state.logined) {
-    const db = firebase.database()
-    const ref = db.ref('data/FAQ')
-    await ref.on('value', (snap) => {
-      const res = snap.val()
-      for (const key in res) {
-        this.lists.push({ ...res[key], id: key })
-      }
-      console.log(this.lists)
-    })
-    }else{
+      const db = firebase.database()
+      const ref = db.ref('data/FAQ')
+      await ref.on('value', (snap) => {
+        const res = snap.val()
+        for (const key in res) {
+          this.lists.push({ ...res[key], id: key })
+        }
+      })
+    } else {
       this.$router.replace('/dashbord/login')
     }
   },

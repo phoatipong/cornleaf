@@ -43,8 +43,9 @@
                   prepend-icon="mdi-help-circle"
                 >
                   <template v-slot:activator>
-                    <v-list-item-title
-                      ><p>{{ list.Q }}</p></v-list-item-title
+                    <v-list-item-title>
+                      <p>{{ list.Q }}</p>
+                      </v-list-item-title
                     >
                   </template>
                   <v-list-item

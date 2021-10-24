@@ -12,16 +12,18 @@
           <v-col cols="6" class="mt-5">
             <v-card rounded="lg" color="#6879aa" height="150">
               <v-card-title>
-                <p>จำนวนการใช้งาน</p>
+                <p>จำนวนการใช้งาน (ครั้ง)</p>
               </v-card-title>
-              <v-card-text class="text-card"> {{ data.predict }} </v-card-text>
+              <v-card-text class="text-card"> <p>{{ data.predict }}</p> </v-card-text>
+             
+              
             </v-card>
           </v-col>
         </v-row>
         <v-row class="mt-5">
           <v-col cols="3">
             <v-card rounded="lg" min-height="140" color="rgb(255, 159, 64)">
-              <v-card-title> <p>โรคราสนิม</p></v-card-title>
+              <v-card-title> <p>โรคราสนิม (ครั้ง)</p></v-card-title>
               <v-card-text class="text-card">
                 {{ data.โรคราสนิม }}
               </v-card-text>
@@ -29,7 +31,7 @@
           </v-col>
           <v-col cols="3">
             <v-card rounded="lg" min-height="140" color="rgb(255, 99, 132)">
-              <v-card-title> <p>โรคใบไหม้แผลใหญ่</p></v-card-title>
+              <v-card-title> <p>โรคใบไหม้แผลใหญ่ (ครั้ง)</p></v-card-title>
               <v-card-text class="text-card">
                 {{ data.โรคใบไหม้แผลใหญ่ }}
               </v-card-text>
@@ -37,7 +39,7 @@
           </v-col>
           <v-col cols="3">
             <v-card rounded="lg" min-height="140" color="rgb(201, 203, 207)">
-              <v-card-title> <p>โรคใบจุดสีเทา</p></v-card-title>
+              <v-card-title> <p>โรคใบจุดสีเทา (ครั้ง)</p></v-card-title>
               <v-card-text class="text-card">
                 {{ data.โรคใบจุดสีเทา }}
               </v-card-text>
@@ -45,7 +47,7 @@
           </v-col>
           <v-col cols="3">
             <v-card rounded="lg" min-height="140" color="success">
-              <v-card-title> <p>ปกติ</p></v-card-title>
+              <v-card-title> <p>ปกติ (ครั้ง)</p></v-card-title>
               <v-card-text class="text-card"> {{ data.ปกติ }} </v-card-text>
             </v-card>
           </v-col>

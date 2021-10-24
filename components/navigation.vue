@@ -17,13 +17,23 @@
       </v-list-item>
       <v-list-item link>
         <v-list-item-icon>
+          <v-icon color="#ffffff">mdi-history</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <nuxt-link to="/dashbord/log">
+            <v-list-item-title>ประวัติการวินิจฉัย</v-list-item-title>
+          </nuxt-link>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item link>
+        <v-list-item-icon>
           <v-icon color="#ffffff">mdi-email-alert</v-icon>
           <v-badge v-if="reportNotify != 0" color="red" :content="reportNotify">
           </v-badge>
         </v-list-item-icon>
         <v-list-item-content>
           <nuxt-link to="/dashbord/report">
-            <v-list-item-title>ปัญหาการใช้งาน</v-list-item-title>
+            <v-list-item-title>ปัญหาการใช้งานและข้อสงสัย</v-list-item-title>
           </nuxt-link>
         </v-list-item-content>
       </v-list-item>

@@ -9,28 +9,37 @@
         </v-col>
       </v-row>
       <v-container>
-        <v-row align="center" justify="center" class="">
-          <v-col v-for="item in fetchData" :key="item" cols="12">
-            <nuxt-link :to="`/diseases/?index=${item.title}`">
-              <indexBtn :title="item.title"></indexBtn>
-            </nuxt-link>
-          </v-col>
+        <v-row align="center" justify="center" class="mt-10">
+          <v-card class="mx-auto" width="300" tile>
+            <v-list flat>
+              <v-subheader>ความรู้ทั่วไป</v-subheader>
+              <v-list-item-group color="primary">
+                <v-list-item v-for="item in fetchData" :key="item">
+                  <nuxt-link :to="`/diseases/?index=${item.title}`"
+                    ><v-list-item-content>
+                      <v-list-item-title
+                        v-text="item.title"
+                      ></v-list-item-title>
+                      <v-divider></v-divider> </v-list-item-content
+                  ></nuxt-link>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-card>
         </v-row>
       </v-container>
     </v-main>
   </v-app>
 </template>
 <script>
+/// /diseases/?index=${item.title}
 import firebase from '~/plugins/firebaseConfig'
-import indexBtn from '~/components/indexBtn'
 export default {
-  components: {
-    indexBtn,
-  },
+  components: {},
 
   data() {
     return {
-      fetchData: [],
+      fetchData: []
     }
   },
   async mounted() {
@@ -42,8 +51,13 @@ export default {
         this.fetchData.push({ ...res[key], id: key })
       }
     })
-  },
+  }
 }
 </script>
 
-<style></style>
+<style scoped>
+.v-list-item__title {
+  text-align: center;
+  font-size: 1.4rem;
+}
+</style>

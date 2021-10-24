@@ -35,18 +35,18 @@ export default {
       reportNotify: 0,
       headers: [
         {
-          text: 'Detail',
+          text: 'เวลา',
           align: 'start',
           sortable: false,
-          value: 'detail',
+          value: 'date',
         },
         {
           text: 'จาก',
           value: 'displayName',
         },
         {
-          text: 'เวลา',
-          value: 'date',
+          text: 'รายละเอียด',
+          value: 'detail',
         },
         {
           text: 'Actions',

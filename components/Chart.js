@@ -10,7 +10,6 @@ const chartColors = {
   purple: 'rgb(153, 102, 255)',
   grey: 'rgb(201, 203, 207)',
 }
-
 export default {
   extends: Doughnut,
   data() {
@@ -51,16 +50,7 @@ export default {
         },
         title: {
           display: true,
-          text: 'สรุปยอด',
-        },
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
+          text: 'สรุปยอดการวินิจฉัย',
         },
       })
     })

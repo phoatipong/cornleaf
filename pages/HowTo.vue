@@ -16,9 +16,12 @@
           class="mt-3 rounded-lg"
         />
       </v-row>
+      <v-row>
+        <v-col> 2.ทำการส่งรูปภาพได้ 2 วิธี</v-col>
+      </v-row>
 
       <v-row>
-        <v-col> 2.กดถ่ายรูป </v-col>
+        <v-col class="ml-5"> วิธีที่ 1.1  กดถ่ายรูป</v-col>
       </v-row>
       <v-row align="center" justify="center">
         <v-img
@@ -30,21 +33,46 @@
         />
       </v-row>
       <v-row>
-        <v-col> 3.ถ่ายรูปใบข้าวโพด </v-col>
+        <v-col class="ml-5"> วิธีที่ 1.2 ถ่ายรูปใบข้าวโพด </v-col>
       </v-row>
       <v-row align="center" justify="center">
-        <v-img
+        <v-img  
           contain
           lazy-src="https://ps.w.org/lazy-load-for-images/assets/icon-256x256.png?rev=2004501"
           max-height="300"
           src="https://firebasestorage.googleapis.com/v0/b/line-bot-bd566.appspot.com/o/img%2FhowTo%2FIMG_8317re.PNG?alt=media&token=fe0f9fd4-004a-45a6-bd2b-754e68d8beef"
           class="mt-3 rounded-lg"
         />
+      </v-row>  
+      <v-row>
+        <v-col class="ml-5"> วิธีที่ 2.1 เลือกรูปภาพจากอุปกรณ์</v-col>
+      </v-row>
+      <v-row align="center" justify="center">
+        <v-img
+          contain
+          lazy-src="https://ps.w.org/lazy-load-for-images/assets/icon-256x256.png?rev=2004501"
+          max-height="300"
+          src="https://firebasestorage.googleapis.com/v0/b/line-bot-bd566.appspot.com/o/img%2FhowTo%2F248951722_1055889958534899_8943790003864303222_n.jpg?alt=media&token=e92cafc7-1505-477c-b456-2306d9ffc3b1"
+          class="mt-3 rounded-lg"
+        />
+      </v-row>
+
+      <v-row>
+        <v-col class="ml-5"> วิธีที่ 2.2 เลือกรูปภาพที่ต้องการและกดส่ง</v-col>
+      </v-row>
+      <v-row align="center" justify="center">
+        <v-img
+          contain
+          lazy-src="https://ps.w.org/lazy-load-for-images/assets/icon-256x256.png?rev=2004501"
+          max-height="300"
+          src="https://firebasestorage.googleapis.com/v0/b/line-bot-bd566.appspot.com/o/img%2FhowTo%2F247367175_633067194372258_2020925021350716004_n.jpg?alt=media&token=c74b7bed-3276-45a7-bcba-4ece3e6e32ee"
+          class="mt-3 rounded-lg"
+        />
       </v-row>
 
       <v-row>
         <v-col>
-          4.รอสักครู่ เพื่อรับผลวินิฉัย และ รับคำแนะนำโรคใบข้าวโพด
+          3.รอสักครู่ เพื่อรับผลวินิฉัย และ รับคำแนะนำโรคใบข้าวโพด
         </v-col>
       </v-row>
       <v-row align="center" justify="center" class="mb-5">

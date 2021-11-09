@@ -198,7 +198,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 .theme--light.v-card > .v-card__text,
 .theme--light.v-card > .v-card__title {

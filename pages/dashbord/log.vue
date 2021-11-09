@@ -62,4 +62,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.theme--light.v-application {
+  background: #001040;
+  color: #ffffff;
+}
+</style>

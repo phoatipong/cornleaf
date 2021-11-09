@@ -8,16 +8,16 @@
         <v-col cols="12">
           <v-form ref="form">
             <v-text-field
+              v-model="email"
               placeholder="Email"
               type="email"
-              v-model="email"
               solo
               rounded
             ></v-text-field>
             <v-text-field
+              v-model="password"
               placeholder="Password"
               type="password"
-              v-model="password"
               solo
               rounded
             ></v-text-field>
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       email: '',
-      password: '',
+      password: ''
     }
   },
 
@@ -57,12 +57,12 @@ export default {
             alert(err)
           })
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
-<style>
+<style lang="postcss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 .theme--light.v-application {
   background: #001040;

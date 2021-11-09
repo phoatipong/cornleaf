@@ -25,8 +25,8 @@
               <v-divider></v-divider>
             </v-col>
             <v-col>
-              <v-btn @click="save" color="success">บันทึก</v-btn>
-              <v-btn @click="cancel" color="">ยกเลิก</v-btn>
+              <v-btn color="success" @click="save">บันทึก</v-btn>
+              <v-btn color="" @click="cancel">ยกเลิก</v-btn>
             </v-col>
           </v-card>
         </v-col>
@@ -37,16 +37,15 @@
 
               <v-list>
                 <v-list-group
-                  :value="false"
                   v-for="list in lists"
                   :key="list.key"
+                  :value="false"
                   prepend-icon="mdi-help-circle"
                 >
-                  <template v-slot:activator>
+                  <template #activator>
                     <v-list-item-title>
                       <p>{{ list.Q }}</p>
-                      </v-list-item-title
-                    >
+                    </v-list-item-title>
                   </template>
                   <v-list-item
                     ><v-icon color="primary" class="mr-10">mdi-chat</v-icon>
@@ -71,7 +70,22 @@ export default {
     return {
       lists: [],
       i: 1,
-      pass: true,
+      pass: true
+    }
+  },
+
+  async mounted() {
+    if (this.$store.state.logined) {
+      const db = firebase.database()
+      const ref = db.ref('data/FAQ')
+      await ref.on('value', (snap) => {
+        const res = snap.val()
+        for (const key in res) {
+          this.lists.push({ ...res[key], id: key })
+        }
+      })
+    } else {
+      this.$router.replace('/dashbord/login')
     }
   },
   methods: {
@@ -114,32 +128,18 @@ export default {
     },
     cancel() {
       this.$router.replace('/dashbord/edit')
-    },
-  },
-
-  async mounted() {
-    if (this.$store.state.logined) {
-      const db = firebase.database()
-      const ref = db.ref('data/FAQ')
-      await ref.on('value', (snap) => {
-        const res = snap.val()
-        for (const key in res) {
-          this.lists.push({ ...res[key], id: key })
-        }
-      })
-    } else {
-      this.$router.replace('/dashbord/login')
     }
-  },
+  }
 }
 </script>
 
-<style>
+<style lang="postcss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 .theme--light.v-application {
   background: #001040;
   color: #ffffff;
 }
+
 .v-application {
   font-family: 'Prompt', sans-serif;
 }

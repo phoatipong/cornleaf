@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 .theme--light.v-application {
   background: #001040;

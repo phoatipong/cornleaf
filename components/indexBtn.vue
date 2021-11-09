@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 .box {
   min-width: 160px;

@@ -115,6 +115,10 @@ export default {
 </script>
 
 <style>
+.theme--light.v-application {
+  background: #001040;
+  color: #ffffff;
+}
 .theme--light.v-label {
   color: rgb(255 255 255 / 100%);
 }

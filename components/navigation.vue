@@ -84,7 +84,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+.theme--light.v-navigation-drawer{
+    background: #050d27;
+    color: #ffffff;
+}
 .theme--light.v-application {
   background: #001040;
   color: #ffffff;
@@ -92,4 +97,5 @@ export default {
 .v-application {
   font-family: 'Prompt', sans-serif;
 }
+
 </style>

@@ -53,4 +53,5 @@ export default {
 .v-application {
   font-family: 'Prompt', sans-serif;
 }
+
 </style>

@@ -2,7 +2,7 @@
   <v-app>
     <v-container fluid>
       <v-row class="mt-5 top-img">
-        <img src="../assets/Report.jpg" />
+        <img src="~/assets/Report.jpg" />
       </v-row>
 
       <hr class="mt-6" />

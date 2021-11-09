@@ -130,7 +130,11 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
+.theme--light.v-application {
+  background: #001040;
+  color: #ffffff;
+}
 .btn-div {
   text-align: right;
 }

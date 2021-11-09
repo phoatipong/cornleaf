@@ -33,17 +33,17 @@ import indexBtn from '~/components/indexBtn'
 export default {
   components: {
     navigator,
-    indexBtn,
+    indexBtn
   },
   mounted() {
     if (!this.$store.state.logined) {
       this.$router.replace('/dashbord/login')
     }
-  },
+  }
 }
 </script>
 
-<style>
+<style lang="postcss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 .theme--light.v-application {
   background: #001040;

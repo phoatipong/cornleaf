@@ -10,8 +10,8 @@
         </v-col>
         <v-col cols="6">
           <v-card light>
-            <v-col><h3>แก้ไขคำถามที่พบบ่อย</h3></v-col>
-            
+            <v-col><h3>แก้ไขคำถามและข้อสงสัย</h3></v-col>
+
             <v-col class="mr">
               <v-btn color="success" small @click="add">เพิ่ม</v-btn>
             </v-col>

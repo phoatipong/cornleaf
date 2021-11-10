@@ -2,7 +2,7 @@
   <v-app>
     <v-container class="mt-10">
       <v-row align="center" justify="center">
-        <h3>คำถามที่พบบ่อย</h3>
+        <h3>คำถามและข้อสงสัย</h3>
       </v-row>
       <v-row align="center" justify="center">
         <v-card>

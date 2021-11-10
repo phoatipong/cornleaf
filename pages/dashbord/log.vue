@@ -1,7 +1,14 @@
 <template>
   <v-app>
     <Navigation />
+
     <v-container>
+      <v-row class="mt-5">
+        <nuxt-link to="/dashbord">
+          <v-icon color="white">mdi-arrow-left</v-icon>
+        </nuxt-link>
+      </v-row>
+      <br><br>
       <v-data-table :headers="headers" :items="fetchData">
         <template #[`item.actions`]="{ item }">
           <v-btn small class="mr-2" color="primary" @click="select(item)">

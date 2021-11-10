@@ -2,10 +2,15 @@
   <v-app>
     <v-container
       ><v-card class="mt-6">
-        <v-card-title>แบบฟอร์มแจ้งปัญหาการใช้งาน</v-card-title>
+        <v-card-title>แบบฟอร์มแจ้งปัญหาการใช้งานหรือข้อสงสัย</v-card-title>
         <v-divider></v-divider>
         <v-card-text>
           <form>
+            <v-select solo
+            :items = 'items'
+            label="โปรดเลือกประเภทการแจ้ง"
+            v-model="payload.genre"
+            ></v-select>
             <v-textarea
               v-model="payload.detail"
               label="รายละเอียด"
@@ -33,6 +38,7 @@ import firebase from '~/plugins/firebaseConfig.js'
 export default {
   data() {
     return {
+      items:['การส่งรูปภาพ' , 'การใช้แอพพลิเคชัน Line', 'ผลการวินิจฉัย','คำแนะนำ','อื่นๆ'],
       payload: {
         detail: '',
         userId: this.$store.state.userId,
@@ -42,6 +48,7 @@ export default {
         date: new Date().toLocaleString('en-GB', { timeZone: 'Asia/Jakarta' }),
         reply: '',
         dateReply: '',
+        genre:''
       },
     }
   },

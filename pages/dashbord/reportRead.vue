@@ -26,6 +26,15 @@
               ></v-text-field>
             </v-col>
           </v-row>
+          <v-row>
+            <v-col>
+              <v-text-field
+                label="ประเภท"
+                :value="fecthData.genre"
+                readonly
+              ></v-text-field>
+            </v-col>
+          </v-row>
 
           <v-row>
             <v-col cols="12">
@@ -85,7 +94,7 @@ export default {
     return {
       id: this.$route.query.id,
       fecthData: {},
-      text: '',
+      text: ''
     }
   },
   async mounted() {
@@ -96,7 +105,7 @@ export default {
         this.fecthData = snap.val()
         this.fecthData = this.fecthData[`${this.id}`]
       })
-    }else{
+    } else {
       this.$router.replace('/dashbord/login')
     }
   },
@@ -106,12 +115,21 @@ export default {
       const payload = {
         event: 'sendback',
         userId: this.fecthData.userId,
-        text: 'ปัญหาผู้ใช้งาน\nวันที่ ' + this.fecthData.date +'\n=========================\n'+'ปัญหาที่แจ้ง\n' + this.fecthData.detail+"\n"+"=========================\n"+ "ตอบกลับ\n"+ this.text,
+        text:
+          'ปัญหาผู้ใช้งาน\nวันที่ ' +
+          this.fecthData.date +
+          '\n=========================\n' +
+          'ปัญหาที่แจ้ง\n' +
+          this.fecthData.detail +
+          '\n' +
+          '=========================\n' +
+          'ตอบกลับ\n' +
+          this.text
       }
       await axios({
         method: 'post',
         url: 'https://us-central1-line-bot-bd566.cloudfunctions.net/hello',
-        data: payload,
+        data: payload
       }).then(async (res) => {
         const db = firebase.database()
         const ref = db.ref(`report/${this.id}`)
@@ -119,14 +137,14 @@ export default {
           read: true,
           reply: this.text,
           dateReply: new Date().toLocaleString('en-GB', {
-            timeZone: 'Asia/Jakarta',
-          }),
+            timeZone: 'Asia/Jakarta'
+          })
         })
         alert('ส่งข้อความสำเร็จ')
         this.$router.replace('/dashbord/report')
       })
-    },
-  },
+    }
+  }
 }
 </script>
 

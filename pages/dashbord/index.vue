@@ -137,9 +137,7 @@ export default {
   background: #050127;
   color: #ffffff;
 }
-.v-list-item__title {
-  color: #ffffff;
-}
+
 .text-card {
   text-align: center;
   font-size: 50px;

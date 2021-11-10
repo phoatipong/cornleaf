@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="12" class="ml-3 mt-3">
-        <nuxt-link to="/">
+        <nuxt-link to="/knowledge">
           <v-icon color="">mdi-keyboard-backspace</v-icon>
         </nuxt-link>
       </v-col>

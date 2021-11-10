@@ -97,5 +97,7 @@ export default {
 .v-application {
   font-family: 'Prompt', sans-serif;
 }
-
+.v-list-item__title {
+  color: #ffffff;
+}
 </style>

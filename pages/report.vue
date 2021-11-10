@@ -2,7 +2,9 @@
   <v-app>
     <v-container fluid>
       <v-row class="mt-5 top-img">
-        <img src="~/assets/Report.jpg" />
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/line-bot-bd566.appspot.com/o/img%2FReport.jpg?alt=media&token=31d4247b-1711-46a5-bd9a-fde986002e5a"
+        />
       </v-row>
 
       <hr class="mt-6" />
@@ -43,18 +45,18 @@ export default {
         userId: '',
         displayName: '',
         pictureUrl: '',
-        email: '',
+        email: ''
       },
       from: {
         email: '',
-        detail: '',
-      },
+        detail: ''
+      }
     }
   },
   mounted() {
     window.liff
       .init({
-        liffId: '1656245076-1DO5Kv4r',
+        liffId: '1656245076-1DO5Kv4r'
       })
       .then(() => {
         if (window.liff.isLoggedIn()) {
@@ -78,10 +80,10 @@ export default {
       await this.$store.commit('setProfile', this.profile)
       this.$router.replace('/reportFrom')
     },
-    FAQ(){
+    FAQ() {
       this.$router.replace('/FAQ')
     }
-  },
+  }
 }
 </script>
 <style>

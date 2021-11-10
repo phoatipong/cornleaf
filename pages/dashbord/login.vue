@@ -13,6 +13,7 @@
               type="email"
               solo
               rounded
+              @keyup.enter.native="submit"
             ></v-text-field>
             <v-text-field
               v-model="password"
@@ -20,6 +21,7 @@
               type="password"
               solo
               rounded
+              @keyup.enter.native="submit"
             ></v-text-field>
             <v-btn color="primary" @click="submit">login</v-btn>
           </v-form>

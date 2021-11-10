@@ -14,7 +14,7 @@
         </v-col>
         <v-col cols="12">
           <nuxt-link to="/FAQ">
-            <indexBtn title="ปัญหาที่พบบ่อย" />
+            <indexBtn title="คำถามและข้อสงสัย" />
           </nuxt-link>
         </v-col>
       </v-row>

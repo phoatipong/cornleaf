@@ -12,7 +12,7 @@
           contain
           lazy-src="https://ps.w.org/lazy-load-for-images/assets/icon-256x256.png?rev=2004501"
           max-height="300"
-          src="https://firebasestorage.googleapis.com/v0/b/line-bot-bd566.appspot.com/o/img%2FhowTo%2FIMG_8314.PNG?alt=media&token=2b27a055-9c19-4480-9a35-e97d9815db5f"
+          src="https://firebasestorage.googleapis.com/v0/b/line-bot-bd566.appspot.com/o/img%2FhowTo%2F258781459_2460204034113357_2958722973759296252_n.jpg?alt=media&token=2dc0a1ce-1856-47d8-a397-0a62a118e004"
           class="mt-3 rounded-lg"
         />
       </v-row>

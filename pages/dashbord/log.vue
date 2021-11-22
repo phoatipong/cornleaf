@@ -45,6 +45,11 @@ export default {
         {
           text: 'ผลลัพธ์',
           value: 'predict'
+        },
+        {
+          text: 'ความเป็นไปได้ (%)',
+          sortable: false,
+          value: 'probability'
         }
       ]
     }

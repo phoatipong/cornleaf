@@ -148,4 +148,7 @@ p {
   color: #000000;
   margin-top: 17px;
 }
+a {
+  text-decoration: none;
+}
 </style>

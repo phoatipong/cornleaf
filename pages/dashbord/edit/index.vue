@@ -18,7 +18,7 @@
           </v-col>
           <v-col cols="6">
             <nuxt-link to="/dashbord/edit/FAQ">
-              <indexBtn title="แก้ไขคำถามที่พบบ่อย"></indexBtn>
+              <indexBtn title="แก้ไขคำถามและข้อสงสัย"></indexBtn>
             </nuxt-link>
           </v-col>
         </v-row>
@@ -51,5 +51,8 @@ export default {
 }
 .v-application {
   font-family: 'Prompt', sans-serif;
+}
+a {
+  text-decoration: none;
 }
 </style>

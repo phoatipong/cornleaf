@@ -100,4 +100,7 @@ export default {
 .v-list-item__title {
   color: #ffffff;
 }
+a {
+  text-decoration: none;
+}
 </style>

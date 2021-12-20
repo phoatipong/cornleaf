@@ -9,6 +9,7 @@ const chartColors = {
   blue: 'rgb(54, 162, 235)',
   purple: 'rgb(153, 102, 255)',
   grey: 'rgb(201, 203, 207)',
+  error : 'rgb(255, 0, 0)'
 }
 export default {
   extends: Doughnut,
@@ -16,7 +17,7 @@ export default {
     return {
       res: {},
       data: {
-        labels: ['โรคราสนิม', 'โรคใบไหม้แผลใหญ่', 'โรคใบจุดสีเทา', 'ปกติ'],
+        labels: ['โรคราสนิม', 'โรคใบไหม้แผลใหญ่', 'โรคใบจุดสีเทา', 'ปกติ' , 'ไม่สามารถวินิจฉัยได้'],
         datasets: [
           {
             backgroundColor: [
@@ -24,6 +25,7 @@ export default {
               chartColors.red,
               chartColors.grey,
               chartColors.green,
+              chartColors.error
             ],
             data: [],
           },
@@ -37,10 +39,11 @@ export default {
     await ref.on('value', (snap) => {
       const res = snap.val()
       this.data.datasets[0].data = [
-        res.โรคราสนิม,
-        res.โรคใบไหม้แผลใหญ่,
-        res.โรคใบจุดสีเทา,
-        res.ปกติ,
+        res.cornRust,
+        res.blight,
+        res.graySpot,
+        res.healty,
+        res.notCornLeaf
       ]
 
       this.renderChart(this.data, {

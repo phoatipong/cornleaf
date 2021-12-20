@@ -102,4 +102,7 @@ export default {
 .v-list-item__content{
   margin-bottom: 24 px;
 }
+a {
+  text-decoration: none;
+}
 </style>

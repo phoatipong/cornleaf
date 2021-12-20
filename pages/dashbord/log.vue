@@ -79,4 +79,7 @@ export default {
   background: #001040;
   color: #ffffff;
 }
+a {
+  text-decoration: none;
+}
 </style>

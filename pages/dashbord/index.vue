@@ -17,13 +17,21 @@
               </v-card-text>
             </v-card>
           </v-col>
+          <v-col cols="3" class="mt-5">
+            <v-card rounded="lg" color="#ff0000" height="150">
+              <v-card-title> ไม่สามารถวินิจฉัยได้ (ครั้ง)</v-card-title>
+              <v-card-text class="text-card">
+                {{ data.notCornLeaf }}
+              </v-card-text>
+            </v-card>
+          </v-col>
         </v-row>
         <v-row class="mt-5">
           <v-col cols="3">
             <v-card rounded="lg" min-height="140" color="rgb(255, 159, 64)">
               <v-card-title> โรคราสนิม (ครั้ง)</v-card-title>
               <v-card-text class="text-card">
-                {{ data.โรคราสนิม }}
+                {{ data.cornRust }}
               </v-card-text>
             </v-card>
           </v-col>
@@ -31,22 +39,22 @@
             <v-card rounded="lg" min-height="140" color="rgb(255, 99, 132)">
               <v-card-title> โรคใบไหม้แผลใหญ่ (ครั้ง)</v-card-title>
               <v-card-text class="text-card">
-                {{ data.โรคใบไหม้แผลใหญ่ }}
+                {{ data.blight }}
               </v-card-text>
             </v-card>
           </v-col>
           <v-col cols="3">
             <v-card rounded="lg" min-height="140" color="rgb(201, 203, 207)">
-              <v-card-title> รคใบจุดสีเทา (ครั้ง)</v-card-title>
+              <v-card-title> โรคใบจุดสีเทา (ครั้ง)</v-card-title>
               <v-card-text class="text-card">
-                {{ data.โรคใบจุดสีเทา }}
+                {{ data.graySpot }}
               </v-card-text>
             </v-card>
           </v-col>
           <v-col cols="3">
             <v-card rounded="lg" min-height="140" color="success">
               <v-card-title> ปกติ (ครั้ง)</v-card-title>
-              <v-card-text class="text-card"> {{ data.ปกติ }} </v-card-text>
+              <v-card-text class="text-card"> {{ data.healty }} </v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -56,7 +64,7 @@
             <DoughnutChart :height="220" />
           </div>
           <v-col cols="4">
-            <v-btn color="#FF9F40" class="mt-15"
+            <v-btn color="#FF9F40" class="mt-15" 
               >โรคราสนิม {{ perRust }} %</v-btn
             >
             <br />
@@ -69,6 +77,8 @@
             >
             <br />
             <v-btn color="#4CAF50" class="mt-1">ปกติ {{ perNormal }} %</v-btn>
+            <br />
+            <v-btn color="#ff0000" class="mt-1">ไม่สามารถวินิจฉัยได้ {{ perNotCornLeaf }} %</v-btn>
           </v-col>
         </v-row>
       </v-container>
@@ -91,7 +101,8 @@ export default {
       perRust: 0,
       perBilght: 0,
       perNormal: 0,
-      perSpot: 0
+      perSpot: 0,
+      perNotCornLeaf:0
     }
   },
   async mounted() {
@@ -105,14 +116,16 @@ export default {
         // for (const key in res) {
         //   this.fetchData.push({ ...res[key], id: key })
         // }
-        this.perRust = (this.data.โรคราสนิม / this.data.predict) * 100
-        this.perBilght = (this.data.โรคใบไหม้แผลใหญ่ / this.data.predict) * 100
-        this.perSpot = (this.data.โรคใบจุดสีเทา / this.data.predict) * 100
-        this.perNormal = (this.data.ปกติ / this.data.predict) * 100
+        this.perRust = (this.data.cornRust / this.data.predict) * 100
+        this.perBilght = (this.data.blight / this.data.predict) * 100
+        this.perSpot = (this.data.graySpot / this.data.predict) * 100
+        this.perNormal = (this.data.healty / this.data.predict) * 100
+        this.perNotCornLeaf = (this.data.notCornLeaf / this.data.predict) * 100
         this.perRust = this.perRust.toFixed(2)
         this.perBilght = this.perBilght.toFixed(2)
         this.perSpot = this.perSpot.toFixed(2)
         this.perNormal = this.perNormal.toFixed(2)
+        this.perNotCornLeaf = this.perNotCornLeaf.toFixed(2)
       })
     } else {
       this.$router.replace('/dashbord/login')
@@ -122,7 +135,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss" scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 
@@ -141,6 +154,10 @@ export default {
 .text-card {
   text-align: center;
   font-size: 50px;
+}
+.v-card__subtitle, .v-card__text {
+  font-size: 50px;
+  color: #ffffff;
 }
 .v-card__text text-card {
   text-align: center;

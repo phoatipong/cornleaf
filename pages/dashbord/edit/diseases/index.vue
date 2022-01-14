@@ -14,12 +14,12 @@
           <v-col cols="3"></v-col>
           <v-col cols="" class="ml-8">
             <nuxt-link to="/dashbord/edit/diseases/add">
-            <v-btn x-large color="primary"> เพิ่ม </v-btn>
+              <v-btn x-large color="primary"> เพิ่ม </v-btn>
             </nuxt-link>
           </v-col>
         </v-row>
         <v-row align="center" justify="center" class="mt-10">
-          <v-card class="mx-auto" max-width="500" min-width="300"  >
+          <v-card class="mx-auto" max-width="500" min-width="300">
             <v-list-item class="mt-5">
               <v-list-item-content>
                 <v-list-item-title
@@ -99,7 +99,7 @@ export default {
 .v-list-item__title {
   font-size: 2rem;
 }
-.v-list-item__content{
+.v-list-item__content {
   margin-bottom: 24 px;
 }
 a {

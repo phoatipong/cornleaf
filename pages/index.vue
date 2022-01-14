@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-app>
     <v-container>
       <v-row align="center" justify="center">
         <v-col cols="12">
@@ -19,15 +19,21 @@
         </v-col>
       </v-row>
     </v-container>
-  </div>
+    <v-footer app>
+      <nuxt-link to="LicenseAgreement" target="_blank">
+        <v-icon>mdi-information</v-icon>
+        ข้อตกลงในการใช้ซอฟต์แวร์
+      </nuxt-link>
+    </v-footer>
+  </v-app>
 </template>
 <script>
 import indexBtn from '~/components/indexBtn'
 export default {
   components: {
-    indexBtn,
+    indexBtn
   },
-  methods: {},
+  methods: {}
 }
 </script>
 

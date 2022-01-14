@@ -55,6 +55,25 @@
           <v-list-item-title>ออกจากระบบ</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+
+      <v-footer
+        inset
+        app
+        dark
+        class="pa-0"
+        style="left: 0px; right: 0px; bottom: 0px"
+      >
+        <v-list-item link @click="LicenseAgreement">
+          <v-list-item-icon>
+            <v-icon>mdi-information</v-icon>
+          </v-list-item-icon>
+          <nuxt-link to="/LicenseAgreement" target="_blank">
+            <v-list-item-content>
+              <v-list-item-title>ข้อตกลงในการใช้ซอฟต์แวร์</v-list-item-title>
+            </v-list-item-content>
+          </nuxt-link>
+        </v-list-item>
+      </v-footer>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -64,7 +83,7 @@ import firebase from '~/plugins/firebaseConfig'
 export default {
   data() {
     return {
-      reportNotify: 0,
+      reportNotify: 0
     }
   },
   async mounted() {
@@ -79,16 +98,16 @@ export default {
     logout() {
       this.$store.commit('setLogined', false)
       this.$router.replace('/dashbord/login')
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
-.theme--light.v-navigation-drawer{
-    background: #050d27;
-    color: #ffffff;
+.theme--light.v-navigation-drawer {
+  background: #050d27;
+  color: #ffffff;
 }
 .theme--light.v-application {
   background: #001040;

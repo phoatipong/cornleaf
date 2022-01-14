@@ -13,15 +13,16 @@
           <v-card class="mx-auto" width="300" tile>
             <v-list flat>
               <v-subheader>ความรู้ทั่วไป</v-subheader>
+
               <v-list-item-group color="primary">
                 <v-list-item v-for="item in fetchData" :key="item">
-                  <nuxt-link :to="`/diseases/?index=${item.title}`"
-                    ><v-list-item-content>
-                      <v-list-item-title
-                        v-text="item.title"
-                      ></v-list-item-title>
-                      <v-divider></v-divider> </v-list-item-content
-                  ></nuxt-link>
+                  <nuxt-link :to="`/diseases/?index=${item.title}`">
+                    <v-list-item-content>
+                      <v-list-item-title v-text="item.title">
+                      </v-list-item-title>
+                      <v-divider></v-divider>
+                    </v-list-item-content>
+                  </nuxt-link>
                 </v-list-item>
               </v-list-item-group>
             </v-list>

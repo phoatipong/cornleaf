@@ -1,6 +1,9 @@
 {
   "name": "cornleaf",
   "version": "1.0.0",
+  "engines": {
+    "node": "14"
+  },
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -19,8 +22,10 @@
     "chart.js": "^2.9.4",
     "core-js": "^2.5.7",
     "firebase": "^8.8.0",
+    "firebase-functions": "^3.19.0",
     "hchs-vue-charts": "^1.2.8",
     "nuxt": "^2.13.3",
+    "request-promise": "^4.2.6",
     "vue-apexcharts": "^1.6.2",
     "vue-chartjs": "^3.5.1",
     "vuetify": "^2.5.5"

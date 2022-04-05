@@ -19,5 +19,33 @@
       "**/.*",
       "**/node_modules/**"
     ]
+  },
+  "emulators": {
+    "hosting": {
+      "host": "127.0.0.1",
+      "port": "3000"
+    },
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "database": {
+      "port": 9000
+    },
+    "pubsub": {
+      "port": 8085
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": false,
+      "port": 5000
+    }
   }
 }

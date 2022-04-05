@@ -63,15 +63,12 @@
         class="pa-0"
         style="left: 0px; right: 0px; bottom: 0px"
       >
-        <v-list-item link @click="LicenseAgreement">
-          <v-list-item-icon>
-            <v-icon>mdi-information</v-icon>
-          </v-list-item-icon>
-          <nuxt-link to="/LicenseAgreement" target="_blank">
-            <v-list-item-content>
-              <v-list-item-title>ข้อตกลงในการใช้ซอฟต์แวร์</v-list-item-title>
-            </v-list-item-content>
-          </nuxt-link>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>
+              © 2022 CSMJU. All Rights Reserved.</v-list-item-title
+            >
+          </v-list-item-content>
         </v-list-item>
       </v-footer>
     </v-list>
@@ -83,7 +80,7 @@ import firebase from '~/plugins/firebaseConfig'
 export default {
   data() {
     return {
-      reportNotify: 0
+      reportNotify: 0,
     }
   },
   async mounted() {
@@ -98,8 +95,8 @@ export default {
     logout() {
       this.$store.commit('setLogined', false)
       this.$router.replace('/dashbord/login')
-    }
-  }
+    },
+  },
 }
 </script>
 

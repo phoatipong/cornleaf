@@ -115,16 +115,11 @@ export default {
       const payload = {
         event: 'sendback',
         userId: this.fecthData.userId,
-        text:
-          'ปัญหาผู้ใช้งาน\nวันที่ ' +
-          this.fecthData.date +
-          '\n=========================\n' +
-          'ปัญหาที่แจ้ง\n' +
-          this.fecthData.detail +
-          '\n' +
-          '=========================\n' +
-          'ตอบกลับ\n' +
-          this.text
+        date: this.fecthData.date,
+        detail: this.fecthData.detail,
+        genre: this.fecthData.genre,
+        text:this.text
+          
       }
       await axios({
         method: 'post',
@@ -142,7 +137,7 @@ export default {
         })
         alert('ส่งข้อความสำเร็จ')
         this.$router.replace('/dashbord/report')
-      })
+      }).catch(e => alert(e))
     }
   }
 }

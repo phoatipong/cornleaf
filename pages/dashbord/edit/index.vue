@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <navigator />
-    <v-main>
+    <v-container>
       <v-row>
-        <v-col cols="12" class="ml-10 mt-10">
+        <v-col cols="12" class=" mt-10">
           <nuxt-link to="/dashbord/">
             <v-icon color="white">mdi-keyboard-backspace</v-icon>
           </nuxt-link>
@@ -23,7 +23,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-main>
+    </v-container>
   </v-app>
 </template>
 

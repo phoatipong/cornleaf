@@ -19,21 +19,16 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-footer app>
-      <nuxt-link to="LicenseAgreement" target="_blank">
-        <v-icon>mdi-information</v-icon>
-        ข้อตกลงในการใช้ซอฟต์แวร์
-      </nuxt-link>
-    </v-footer>
+    <v-footer app>© 2022 CSMJU. All Rights Reserved. </v-footer>
   </v-app>
 </template>
 <script>
 import indexBtn from '~/components/indexBtn'
 export default {
   components: {
-    indexBtn
+    indexBtn,
   },
-  methods: {}
+  methods: {},
 }
 </script>
 

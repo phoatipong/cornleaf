@@ -30,7 +30,7 @@
           ></v-select>
         </v-col>
         <v-col cols="2" class="mt-4">
-          <v-btn @click="reset">รีเซ็ท</v-btn>
+          <v-btn @click="reset">รีเซ็ต</v-btn>
         </v-col>
       </v-row>
 
@@ -60,33 +60,33 @@ export default {
         'การใช้แอพพลิเคชัน Line',
         'ผลการวินิจฉัย',
         'คำแนะนำ',
-        'อื่นๆ'
+        'อื่นๆ',
       ],
       headers: [
         {
           text: 'เวลา',
           align: 'start',
-          value: 'date'
+          value: 'date',
+        },
+        {
+          text: 'เวลาตอบกลับ',
+          value: 'dateReply',
         },
         {
           text: 'จาก',
-          value: 'displayName'
+          value: 'displayName',
         },
         {
           text: 'ประเภท',
-          value: 'genre'
-        },
-        {
-          text: 'รายละเอียด',
-          value: 'detail'
+          value: 'genre',
         },
         {
           text: 'Actions',
           value: 'actions',
-          sortable: false
-        }
+          sortable: false,
+        },
       ],
-      fetchData: []
+      fetchData: [],
     }
   },
   async mounted() {
@@ -152,6 +152,7 @@ export default {
         for (const key in res) {
           this.fetchData.push({ ...res[key], id: key })
         }
+        this.fetchData = this.fetchData.filter(data => data.read === this.read)
       })
     },
     async reset() {
@@ -170,8 +171,8 @@ export default {
         },
         (errorObject) => {}
       )
-    }
-  }
+    },
+  },
 }
 </script>
 

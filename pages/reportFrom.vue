@@ -6,10 +6,11 @@
         <v-divider></v-divider>
         <v-card-text>
           <form>
-            <v-select solo
-            :items = 'items'
-            label="โปรดเลือกประเภทการแจ้ง"
-            v-model="payload.genre"
+            <v-select
+              solo
+              :items="items"
+              label="โปรดเลือกประเภทการแจ้ง"
+              v-model="payload.genre"
             ></v-select>
             <v-textarea
               v-model="payload.detail"
@@ -33,13 +34,21 @@
 </template>
 
 <script>
+import axios from 'axios'
 import firebase from '~/plugins/firebaseConfig.js'
 
 export default {
   data() {
     return {
-      items:['การส่งรูปภาพ' , 'การใช้แอพพลิเคชัน Line', 'ผลการวินิจฉัย','คำแนะนำ','อื่นๆ'],
+      items: [
+        'การส่งรูปภาพ',
+        'การใช้แอพพลิเคชัน Line',
+        'ผลการวินิจฉัย',
+        'คำแนะนำ',
+        'อื่นๆ',
+      ],
       payload: {
+        event: 'sendbackFormReport',
         detail: '',
         userId: this.$store.state.userId,
         displayName: this.$store.state.displayName,
@@ -48,7 +57,7 @@ export default {
         date: new Date().toLocaleString('en-GB', { timeZone: 'Asia/Jakarta' }),
         reply: '',
         dateReply: '',
-        genre:''
+        genre: '',
       },
     }
   },
@@ -57,8 +66,20 @@ export default {
       if (this.payload.detail === '') {
         alert('กรุณากรอกรายละเอียด')
       } else {
+        const payload = {
+          event: 'sendback',
+          userId: this.$store.state.userId,
+          date: new Date().toLocaleString('en-GB', { timeZone: 'Asia/Jakarta' }),
+          detail: this.payload.detail,
+          genre: this.payload.genre,
+        }
         const db = firebase.database()
         const ref = db.ref('report')
+        await axios({
+          method: 'post',
+          url: 'https://us-central1-line-bot-bd566.cloudfunctions.net/hello',
+          data: payload,
+        })
         await ref.push(this.payload).then(() => {
           alert('แจ้งปัญหาสำเร็จ เราจะตอบกลับไปเร็วๆนี้')
           window.liff
